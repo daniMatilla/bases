@@ -1,4 +1,4 @@
-import { emailTemplate } from '../src/js-foundation/01-template';
+import { emailTemplate } from '../../src/js-foundation/01-template';
 
 describe('template', () => {
     test('emailTemplate should contain a greeting', () => {

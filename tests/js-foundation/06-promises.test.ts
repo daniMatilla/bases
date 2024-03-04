@@ -1,5 +1,5 @@
 import { AxiosError } from 'axios';
-import { getPokemonById } from '../src/js-foundation/06-promises';
+import { getPokemonById } from '../../src/js-foundation/06-promises';
 
 describe('06-promises', () => {
     test('getPockemonById should return a pokemon', async () => {
