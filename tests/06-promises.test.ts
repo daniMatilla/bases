@@ -1,3 +1,4 @@
+import { AxiosError } from 'axios';
 import { getPokemonById } from '../src/js-foundation/06-promises';
 
 describe('06-promises', () => {
@@ -12,8 +13,6 @@ describe('06-promises', () => {
 
         expect.assertions(1);
 
-        await getPokemonById(pokemonId).catch((error: Error) =>
-            expect(error.message).toBe(`Pockemon not found with id: ${pokemonId}`)
-        );
+        await getPokemonById(pokemonId).catch((error: AxiosError) => expect(error.response?.status).toBe(404));
     });
 });
