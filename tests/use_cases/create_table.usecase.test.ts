@@ -1,6 +1,6 @@
 import { CreateTable } from '../../src/domain/use_cases/create_table.usecase';
 
-describe('create_table', () => {
+describe('CreateTableUseCase', () => {
     const createTable = new CreateTable();
 
     test('should create table with default values', () => {
@@ -14,12 +14,12 @@ describe('create_table', () => {
         expect(rows[4]).toBe(`${values.base} x 5 = 10`);
         expect(rows[9]).toBe(`${values.base} x 10 = 20`);
     });
-    
+
     test('should create table with custom values', () => {
         const values = { base: 3, limit: 7 };
 
         const table = createTable.call(values);
-        const rows = table.split('\n');        
+        const rows = table.split('\n');
 
         expect(rows.length).toBe(values.limit);
         expect(rows[0]).toBe(`${values.base} x 1 = 3`);
