@@ -1,8 +1,8 @@
-export interface CreateTableUseCase {
+interface CreateTableUseCase {
     call: (options: CreateTableOptions) => string;
 }
 
-export interface CreateTableOptions {
+interface CreateTableOptions {
     base: number;
     limit?: number;
 }

@@ -1,7 +1,7 @@
 import fs from 'fs';
-import { yarg } from './plugins/yargs.plugin';
+import { args } from './plugins/args.plugin';
 
-const { b, l, s } = yarg;
+const { b, l, s } = args;
 
 const numbers = Array.from({ length: l }, (_, i) => i + 1);
 const base = b;

@@ -1,10 +1,10 @@
 import fs from 'fs';
 
-export interface SaveFileUseCase {
+interface SaveFileUseCase {
     call: (options: SaveFileOptions) => boolean;
 }
 
-export interface SaveFileOptions {
+interface SaveFileOptions {
     fileContent: string;
     fileDestination?: string;
     fileName?: string;
@@ -24,7 +24,6 @@ export class SaveFile implements SaveFileUseCase {
             fs.writeFileSync(path, fileContent);
             return true;
         } catch (error) {
-            // console.log(error);
             return false;
         }
     }

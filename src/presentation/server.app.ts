@@ -20,7 +20,7 @@ export class ServerApp {
             fileName: fileName,
         });
 
-        if (fileSaved) console.log('File created!');
+        fileSaved ? console.log('File created!') : console.error('File not created!');
         if (printTable) console.log(table);
     }
 }
