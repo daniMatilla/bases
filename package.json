@@ -5,13 +5,18 @@
   "scripts": {
     "dev": "tsnd --respawn --clear src/app.ts",
     "build": "rimraf ./dist && tsc",
-    "start": "npm run build && node dist/app.js"
+    "start": "npm run build && node dist/app.js",
+    "json:server" : "json-server json-server.json"
   },
   "license": "MIT",
   "devDependencies": {
     "@types/node": "^20.11.24",
+    "json-server": "^1.0.0-alpha.23",
     "rimraf": "^5.0.5",
     "ts-node-dev": "^2.0.0",
     "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "cron": "^3.1.6"
   }
 }
