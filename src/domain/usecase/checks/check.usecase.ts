@@ -1,11 +1,11 @@
-interface CheckUseCase {
+interface CheckServiceUseCase {
     call(url: string): Promise<void>;
 }
 
 type SuccessCallback = () => void;
 type ErrorCallback = (error: Error) => void;
 
-export class Check implements CheckUseCase {
+export class CheckService implements CheckServiceUseCase {
     constructor(private readonly successCallback: SuccessCallback, private readonly errorCallback: ErrorCallback) {}
 
     async call(url: string): Promise<void> {
