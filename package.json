@@ -11,6 +11,7 @@
   "license": "MIT",
   "devDependencies": {
     "@types/node": "^20.11.24",
+    "@types/nodemailer": "^6.4.14",
     "json-server": "^1.0.0-alpha.23",
     "rimraf": "^5.0.5",
     "ts-node-dev": "^2.0.0",
@@ -19,6 +20,7 @@
   "dependencies": {
     "cron": "^3.1.6",
     "dotenv": "^16.4.5",
-    "env-var": "^7.4.1"
+    "env-var": "^7.4.1",
+    "nodemailer": "^6.9.11"
   }
 }

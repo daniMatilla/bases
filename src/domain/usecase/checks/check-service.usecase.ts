@@ -9,6 +9,8 @@ type SuccessCallback = () => void;
 type ErrorCallback = (error: string) => void;
 
 export class CheckService implements CheckServiceUseCase {
+    static readonly TAG: string = this.name;
+
     constructor(
         private readonly logRepository: ILogRepository,
         private readonly successCallback: SuccessCallback,
@@ -20,10 +22,22 @@ export class CheckService implements CheckServiceUseCase {
             const rep = await fetch(url);
             if (!rep.ok) throw new Error(`Check service ${url}`);
 
-            this.logRepository.saveLog(new LogEntity({ message: `Service ${url} working`, level: LogLevel.low }));
+            this.logRepository.saveLog(
+                new LogEntity({
+                    origin: CheckService.TAG,
+                    message: `Service ${url} working`,
+                    level: LogLevel.low,
+                })
+            );
             this.successCallback();
         } catch (error) {
-            this.logRepository.saveLog(new LogEntity({ message: `${url} is not ok. ${error}`, level: LogLevel.high }));
+            this.logRepository.saveLog(
+                new LogEntity({
+                    origin: CheckService.TAG,
+                    message: `${url} is not ok. ${error}`,
+                    level: LogLevel.high,
+                })
+            );
             this.errorCallback(`${error}`);
         }
     }
