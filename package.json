@@ -6,7 +6,7 @@
     "dev": "tsnd --respawn --clear src/app.ts",
     "build": "rimraf ./dist && tsc",
     "start": "npm run build && node dist/app.js",
-    "json:server" : "json-server json-server.json"
+    "json:server": "json-server json-server.json"
   },
   "license": "MIT",
   "devDependencies": {
@@ -17,6 +17,8 @@
     "typescript": "^5.3.3"
   },
   "dependencies": {
-    "cron": "^3.1.6"
+    "cron": "^3.1.6",
+    "dotenv": "^16.4.5",
+    "env-var": "^7.4.1"
   }
 }
