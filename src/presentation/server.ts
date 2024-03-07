@@ -8,13 +8,13 @@ export class Server {
     static start() {
         console.log('Server started...');
 
-        CronService.createJob('*/5 * * * * *', () => {
-            new CheckService(
-                fileSystemRepository,
-                () => console.log(`${url} is ok`),
-                (error) => console.log(error)
-            ).call(url);
-        });
+        // CronService.createJob('*/5 * * * * *', () => {
+        //     new CheckService(
+        //         fileSystemRepository,
+        //         () => console.log(`${url} is ok`),
+        //         (error) => console.log(error)
+        //     ).call(url);
+        // });
     }
 }
 
