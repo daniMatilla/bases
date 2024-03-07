@@ -1,4 +1,4 @@
-import { LogEntity, LogLevel } from '../entity/log.entity';
+ import { LogEntity, LogLevel } from '../entity/log.entity';
 
 export interface ILogRepository {
     saveLog(log: LogEntity): Promise<void>;
