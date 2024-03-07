@@ -3,3 +3,4 @@
 *.http
 
 node_modules/
+logs/
