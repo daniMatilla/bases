@@ -1,15 +1,15 @@
 import { LogEntity, LogLevel } from '../../entity/log.entity';
 import { ILogRepository } from '../../repository/iLog.repository';
 
-interface CheckServiceUseCase {
+interface ICheckServiceUseCase {
     call(url: string): Promise<void>;
 }
 
 type SuccessCallback = () => void;
 type ErrorCallback = (error: string) => void;
 
-export class CheckService implements CheckServiceUseCase {
-    static readonly TAG: string = this.name;
+export class CheckService implements ICheckServiceUseCase {
+    private static readonly TAG: string = this.name;
 
     constructor(
         private readonly logRepository: ILogRepository,
