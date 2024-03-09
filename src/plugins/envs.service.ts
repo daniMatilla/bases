@@ -1,5 +1,8 @@
-import 'dotenv/config';
+import { config } from 'dotenv';
+import { expand } from 'dotenv-expand';
 import * as env from 'env-var';
+
+expand(config());
 
 export const envs = {
     PORT: env.get('PORT').required().asPortNumber(),
@@ -11,8 +14,9 @@ export const envs = {
     MAILER_SECRET_KEY: env.get('MAILER_SECRET_KEY').required().asString(),
 
     // MONGO
-    MONGO_URL: env.get('MONGO_URL').required().asString(),
+    MONGO_URL: env.get('MONGO_URL').required().asString(), // mongodb://${MONGO_USER}:${MONGO_PASS}@localhost:${MONGO_PORT}
     MONGO_DB_NAME: env.get('MONGO_DB_NAME').required().asString(),
     MONGO_USER: env.get('MONGO_USER').required().asString(),
     MONGO_PASS: env.get('MONGO_PASS').required().asString(),
-}
+    MONGO_PORT: env.get('MONGO_PORT').default(27017).asPortNumber(),
+};
