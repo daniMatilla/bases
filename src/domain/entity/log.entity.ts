@@ -26,8 +26,11 @@ export class LogEntity {
 
     static readonly fromJson = (json: string): LogEntity => {
         const { level, message, createdAt, origin } = JSON.parse(json);
-        const logEntity = new LogEntity({ message, level, createdAt: new Date(createdAt), origin });
+        return new LogEntity({ message, level, createdAt: new Date(createdAt), origin });
+    };
 
-        return logEntity;
+    static readonly fromObject = (object: { [key: string]: any }): LogEntity => {
+        const { level, message, createdAt, origin } = object;
+        return new LogEntity({ message, level, createdAt: createdAt, origin });
     };
 }

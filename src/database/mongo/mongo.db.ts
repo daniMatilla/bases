@@ -23,7 +23,7 @@ export class MongoDataBase {
                 new LogEntity({
                     origin: MongoDataBase.TAG,
                     message: messsage,
-                    level: LogLevel.high,
+                    level: LogLevel.low,
                 })
             );
 
