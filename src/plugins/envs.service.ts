@@ -19,4 +19,11 @@ export const envs = {
     MONGO_USER: env.get('MONGO_USER').required().asString(),
     MONGO_PASS: env.get('MONGO_PASS').required().asString(),
     MONGO_PORT: env.get('MONGO_PORT').default(27017).asPortNumber(),
+
+    // POSTGRES
+    POSTGRES_USER: env.get('POSTGRES_USER').required().asString(),
+    POSTGRES_PASSWORD: env.get('POSTGRES_PASSWORD').required().asString(),
+    POSTGRES_DB: env.get('POSTGRES_DB').required().asString(),
+    POSTGRES_PORT: env.get('POSTGRES_PORT').default(5432).asPortNumber(),
+    PRISMA_URL: env.get('PRISMA_URL').required().asString(),
 };
