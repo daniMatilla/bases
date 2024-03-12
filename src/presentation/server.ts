@@ -6,17 +6,17 @@ import { CronService } from '../plugins/cron.service';
 import { MailerService } from '../plugins/mailer.service';
 import { SendLogsEmail } from '../domain/usecase/mailer/send-logs-email.usecase';
 import { MongoDataBase } from '../database/mongo/mongo.db';
-import { LogMongooseModel } from '../database/mongo/models/log.model';
+import { LogModel } from '../database/mongo/models/schema.mongo';
 import { MongoDatasource } from '../data/datasource/mongo.datasource';
+import { PrismaClient } from '@prisma/client';
+import { PostgresDatasource } from '../data/datasource/postgres.datasource';
 
 export class Server {
     static start() {
         console.log('Server started...');
-        new MongoDataBase(logRepository).connect({
-            mongoUrl: envs.MONGO_URL,
-            dbName: envs.MONGO_DB_NAME,
-        });
-        // cronService();
+        // mongoConnect();
+
+        cronService();
         // sendLogsEmail();
     }
 }
@@ -24,14 +24,19 @@ export class Server {
 const url = `http://localhost:${envs.PORT}`;
 const logRepository = new LogRepository(
     // new FileSystemDatasource()
-    new MongoDatasource()
+    // new MongoDatasource()
+    new PostgresDatasource()
 );
 const mailerService = new MailerService();
 
-const sendLogsEmail = () =>
-    new SendLogsEmail(logRepository, mailerService).call(
-        'danimatilla@outlook.es'
-    );
+const mongoConnect = () => {
+    new MongoDataBase(logRepository).connect({
+        mongoUrl: envs.MONGO_URL,
+        dbName: envs.MONGO_DB_NAME,
+    });
+};
+
+const sendLogsEmail = () => new SendLogsEmail(logRepository, mailerService).call('danimatilla@outlook.es');
 
 const cronService = () =>
     CronService.createJob('*/5 * * * * *', () => {

@@ -11,4 +11,4 @@ const logSchema = new mongoose.Schema({
     createdAt: { type: Date, default: Date.now },
 });
 
-export const LogMongooseModel = mongoose.model('Log', logSchema);
+export const LogModel = mongoose.model('Log', logSchema);
