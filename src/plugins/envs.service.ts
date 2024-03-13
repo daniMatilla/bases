@@ -18,12 +18,14 @@ export const envs = {
     MONGO_USER: env.get('MONGO_USER').required().asString(),
     MONGO_PASS: env.get('MONGO_PASS').required().asString(),
     MONGO_PORT: env.get('MONGO_PORT').default(27017).asPortNumber(),
-    MONGO_URL: env.get('MONGO_URL').required().asString(), // mongodb://${MONGO_USER}:${MONGO_PASS}@localhost:${MONGO_PORT}
+    MONGO_URL: env.get('MONGO_URL').required().asString(), 
+    // mongodb://${MONGO_USER}:${MONGO_PASS}@localhost:${MONGO_PORT}
 
     // POSTGRES
     POSTGRES_DB_NAME: env.get('POSTGRES_DB_NAME').required().asString(),
     POSTGRES_USER: env.get('POSTGRES_USER').required().asString(),
     POSTGRES_PASSWORD: env.get('POSTGRES_PASS').required().asString(),
     POSTGRES_PORT: env.get('POSTGRES_PORT').default(5432).asPortNumber(),
-    PRISMA_URL: env.get('PRISMA_URL').required().asString(), // postgresql://${POSTGRES_USER}:${POSTGRES_PASS}@localhost:${POSTGRES_PORT}
+    PRISMA_URL: env.get('PRISMA_URL').required().asString(), 
+    // postgresql://${POSTGRES_USER}:${POSTGRES_PASS}@localhost:${POSTGRES_PORT}
 };
